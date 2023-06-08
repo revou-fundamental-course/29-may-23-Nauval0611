@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portofolio</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <header class="header">
+      <a href="#"><img class="logo" src="oi.jpeg" alt="logo" width="25" /></a>
+      <div class="nav-bar">
+        <div class="nav-item"><a href="#hero">Home</a></div>
+        <div class="nav-item"><a href="#headquartes-section">Profile</a></div>
+        <div class="nav-item"><a href="#">Portofolio</a></div>
+        <div class="nav-item"><a href="#">Massage Us</a></div>
+      </div>
+    </header>
+    <div id="hero" class="hero">
+      <h1>Hi <span id="nama"></span>,</h1>
+      <h2>Ini website latihan</h2>
+      <div class="banner">
+        <img src="/assets/gambar1.jpg" class="slider" />
+        <img src="/assets/gambar2.jpg" class="slider" />
+        <img src="/assets/gambar3.jpg" class="slider" />
+      </div>
+      <script>
+        var nama = prompt("Masukkan nama kamu");
+        document.getElementById("nama").innerText = nama;
+        console.log(nama);
+      </script>
+    </div>
+
+    <div id="headquartes-section">
+      <h1>headquartes section</h1>
+      <div class="wrapper">
+        <div class="headquartes-image-container">
+          <div class="headquartes-image"></div>
+          <p>Semarang</p>
+        </div>
+        <div class="headquartes-image-container">
+          <div class="headquartes-image"></div>
+          <p>Samarinda</p>
+        </div>
+        <div class="headquartes-image-container">
+          <div class="headquartes-image"></div>
+          <p>Surbaya</p>
+        </div>
+      </div>
+    </div>
+    <div id="message-us-section" class="message-us">
+      <h1>Kritik dan saran</h1>
+      <form name="message-form" onsubmit="return validateForm()">
+        <table class="tabel">
+          <tr>
+            <td>Nama</td>
+            <td>:</td>
+            <td><input id="nama-input" type="text" name="nama" /></td>
+          </tr>
+          <tr>
+            <td>E-mail</td>
+            <td>:</td>
+            <td>
+              <input id="alamat-email" type="email" name="email" />
+            </td>
+          </tr>
+          <tr>
+            <td>Tanggal Lahir</td>
+            <td>:</td>
+            <td><input id="date-input" type="date" name="tanggal-lahir" /></td>
+          </tr>
+          <tr>
+            <td>Jenis Kelamin</td>
+            <td>:</td>
+            <td>
+              <input
+                type="radio"
+                id="male"
+                name="gender"
+                value="Laki-laki"
+              />Laki-laki
+            </td>
+            <td>
+              <input
+                type="radio"
+                id="female"
+                name="gender"
+                value="Perempuan"
+              />Perempuan
+            </td>
+          </tr>
+          <tr>
+            <td>Pesan</td>
+            <td>:</td>
+            <td>
+              <textarea
+                placeholder="pesan"
+                type="textarea"
+                name="pesan"
+              ></textarea>
+            </td>
+          </tr>
+          <tr class="submit">
+            <td>
+              <button class="button" onclick="myFunction()">
+                <input type="submit" value="Submit" />
+              </button>
+            </td>
+          </tr>
+        </table>
+      </form>
+      <script>
+        function validateForm() {
+          var nama = document.forms["message-form"]["nama"].value;
+          var email = document.forms["message-form"]["email"].value;
+          var date = document.forms["message-form"]["tanggal-lahir"].value;
+          var gender = document.forms["message-form"]["gender"].value;
+          var message = document.forms["message-form"]["pesan"].value;
+
+          if (
+            nama === "" ||
+            date === "" ||
+            gender === "" ||
+            message === "" ||
+            email === ""
+          ) {
+            alert("Formulir tidak boleh kosong");
+            return false;
+          }
+
+          //     function validateForm() {
+          //   let i = document.forms["message-form"]["nama"].value;
+          //   if (i == "") {
+          //     alert("Formulir tidak boleh kosong");
+          //     return false;
+          //   }
+          // }
+
+          document.getElementById("sender-full-name").innerText = nama;
+          document.getElementById("sender-email").innerText = email;
+          document.getElementById("sender-birth-date").innerText = date;
+          document.getElementById("sender-gender").innerText = gender;
+          document.getElementById("sender-message").innerText = message;
+
+          return false;
+        }
+      </script>
+
+      <div class="output">
+        <p>Nama :<span id="sender-full-name"></span></p>
+        <p>E-mail :<span id="sender-email"></span></p>
+        <p>Tanggal Lahir :<span id="sender-birth-date"></span></p>
+        <p>Jenis Kelamin :<span id="sender-gender"></span></p>
+        <p>Pesan :<span id="sender-message"></span></p>
+      </div>
+    </div>
+    <script>
+      function myFunction() {
+        alert("Terima kasih saran & masukannya!!!");
+      }
+    </script>
+
+    <footer class="footer">&copy Created By Me</footer>
+  </body>
+</html>
